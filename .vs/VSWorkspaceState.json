@@ -2,9 +2,11 @@
   "ExpandedNodes": [
     "",
     "\\client",
+    "\\client\\public",
+    "\\client\\src",
     "\\client\\src\\components",
     "\\server"
   ],
-  "SelectedNode": "\\client\\src",
+  "SelectedNode": "\\client",
   "PreviewInSolutionExplorer": false
 }
