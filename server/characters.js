@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Character = require('./Character');
+const Character = require('./character');
 
 router.get('/', async (req, res) => {
     try {
@@ -23,5 +23,11 @@ router.post('/', async (req, res) => {
         res.status(400).json({ message: err.message });
     }
 });
+
+router.delete('/:id', async (req, res) => {
+  console.log(req.params.id)
+  const deletedCharacter = await Character.findByIdAndRemove({_id: req.params.id})
+  console.log(`The Character ${deletedCharacter.name} has been deleted`)
+})
 
 module.exports = router;
