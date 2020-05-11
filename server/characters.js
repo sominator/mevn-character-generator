@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Character = require('./Character');
+const Character = require('./character');
 
 router.get('/', async (req, res) => {
     try {
