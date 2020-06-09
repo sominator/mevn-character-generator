@@ -1,7 +1,9 @@
 <template>
     <div id="app">
-        <button v-on:click="toggle='character-viewer'; getCharacters()">View all characters</button>
-        <button v-on:click="toggle='character-creator'">Create a character</button>
+      <div class="buttons_container">
+        <button class="btn btn-primary btn-md" v-on:click="toggle='character-viewer'; getCharacters()">View all characters</button>
+        <button class="btn btn-success btn-md" v-on:click="toggle='character-creator'">Create a characters</button>
+      </div>
         <CharacterViewer v-show="toggle==='character-viewer'" :characters="characters"/>
         <CharacterCreator v-show="toggle==='character-creator'" />
     </div>
@@ -46,5 +48,14 @@
         text-align: center;
         color: #2c3e50;
         margin-top: 60px;
+    }
+
+    .buttons_container {
+      display: flex;
+      justify-content: center;
+    }
+
+    .buttons_container button {
+      margin: 0.3em 0em 0.5em 0.3em;
     }
 </style>

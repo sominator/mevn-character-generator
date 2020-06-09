@@ -4,12 +4,13 @@
         <label for="character-name">Character Name: </label>
         <input type="text" id="character-name" v-model="name" placeholder="Enter a name" /> <br /><br />
         <label for="professions-list">Character Profession: </label>
-        <select id="professions-list" v-model="profession">
+        <select class="selector" id="professions-list" v-model="profession">
+            <option value="Without Profession"></option>
             <option value="Mage">Mage</option>
             <option value="Thief">Thief</option>
             <option value="Warrior">Warrior</option>
         </select><br /><br />
-        <button v-on:click="postCharacter">Create Character</button>
+        <button class="btn btn-info" v-on:click="postCharacter">Create Character</button>
     </div>
 </template>
 
@@ -30,11 +31,18 @@
                     .post('http://localhost:3000/characters', {
                         name: this.name,
                         profession: this.profession
-                    });
+                    })
+                    .then(() => {
+                      window.location.href = '/'
+                    })
+
             }
         }
     }
 </script>
 
 <style scoped>
+  .selector {
+    width: 80px;
+  }
 </style>
